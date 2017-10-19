@@ -1,0 +1,51 @@
+.s-post {
+    width: 50%;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 3px;
+    padding: 2rem 5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 800px) {
+    .s-post {
+        width: 70%;
+    }
+}
+
+.s-post-title {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.s-post-title > a:hover {
+    font-weight: 800;
+    border-bottom: 1px solid #999;
+    color: #666;
+}
+
+.s-post-desc {
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #666;
+    line-height: 2em;
+    text-align: left;
+}
+
+.s-post-desc img {
+    width: 100%;
+}
+
+.s-post-meta {
+    color: #999;
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 12px;
+}
+
+.s-post-comment-link {
+    color: #999;
+    border-bottom: 1px solid #999;
+}
+
+.s-posts-wrap {
+    margin-top: 80px;
+}
