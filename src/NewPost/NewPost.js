@@ -14,17 +14,19 @@ class NewPost extends Component {
             editArea: '',
             editTitle: '',
             tag: '',
-            conect: request.post('http://localhost:3888/api/post')
+            conect: request.post('http://localhost:3888/api/post'),
+            who: ''
         }
         this.handleEditAreaChange = this.handleEditAreaChange.bind(this)
         this.handleEditTitleChange = this.handleEditTitleChange.bind(this)
         this.createNewPost = this.createNewPost.bind(this)
         this.handleTagChange = this.handleTagChange.bind(this)
+        this.handleWhoChange = this.handleWhoChange.bind(this)
     }
 
-    componentWillMount() {
-        console.log('checkToken')
-    }
+    // componentWillMount() {
+    //     console.log('checkToken')
+    // }
 
     handleEditAreaChange(event) {
         console.log(event.target.value)
@@ -39,16 +41,25 @@ class NewPost extends Component {
         this.setState({ tag: event.target.value })
     }
 
+    handleWhoChange(event) {
+        this.setState({ who: event.target.value })
+    }
+
     createNewPost() {
-        this.state.conect.send({
-            title: this.state.editTitle,
-            markdownContent: this.state.editArea,
-            content: this.state.editArea,
-            createDate: new Date().toLocaleDateString(),
-            tags: this.state.tag.split('、')
-        }).end((err, res) => {
-            console.log(res.body)
-        })
+        if (this.state.editTitle && this.state.editArea) {
+            this.state.conect.send({
+                title: this.state.editTitle,
+                markdownContent: this.state.editArea,
+                content: this.state.editArea,
+                createDate: new Date().toLocaleDateString(),
+                tags: this.state.tag.split('、'),
+                who: this.state.who
+            }).end((err, res) => {
+                console.log(res.body)
+            })
+        } else {
+            return false
+        }
     }
 
     createHtmlFromMarkdown(post) {
@@ -62,26 +73,30 @@ class NewPost extends Component {
         return (
             <div>
                 <article className="edit-area">
-                    <div>
-                        <input value={this.state.editTitle} onChange={this.handleEditTitleChange}></input>
+                    <div className="form-group">
+                        <input className="form-control" placeholder="标题" value={this.state.editTitle} onChange={this.handleEditTitleChange}></input>
                     </div>
                     
-                    <div>
-                        <textarea value={this.state.editArea} onChange={this.handleEditAreaChange}></textarea>
+                    <div className="form-group">
+                        <textarea rows="20" className="form-control" placeholder="内容 （markdown)" value={this.state.editArea} onChange={this.handleEditAreaChange}></textarea>
                     </div>
 
-                    <div>
-                        <input value={this.state.tag} onChange={this.handleTagChange}></input>
+                    <div className="form-group">
+                        <input className="form-control" placeholder="Tag" value={this.state.tag} onChange={this.handleTagChange}></input>
+                    </div>
+
+                    <div className="form-group">
+                        <input className="form-control" placeholder="Who are you ???" value={this.state.who} onChange={this.handleWhoChange}></input>
+                    </div>
+
+                    <div className="form-group">
+                        <button onClick={this.createNewPost} className="btn btn-default">创建新文章</button>
                     </div>
                     
                     
                 </article>
 
-                <article>
-                    <section dangerouslySetInnerHTML={this.createHtmlFromMarkdown(this.state.editArea)}></section>
-                </article>
-
-                <button onClick={this.createNewPost}>Add new</button>
+                
             </div>
         )
     }
