@@ -23,7 +23,9 @@ class Summary extends Component {
     // 初始化时调用此钩子
     componentWillMount () {
         this.state.getPosts.end((err, data) => {
-            this.setState({ post: data.body.reverse() })
+            if (data.body) {
+                this.setState({ post: data.body.body })
+            }
         })
     }
 
@@ -36,7 +38,7 @@ class Summary extends Component {
                         <Link to={`post/${item._id}`}>{item.title}</Link>
                     </h1>
                     <p className="s-post-meta">
-                        <span>Posted on</span> {item.createDate}  |  <a className="s-post-comment-link">{item.comment.length} 条评论</a>
+                        <span>Posted on</span> {item.createDate}  |  <a className="s-post-comment-link">{item.commentCount} 条评论</a>
                     </p>
                 </header>
                 <section className="s-post-desc" dangerouslySetInnerHTML={util.createHtmlFromMarkdown(item.markdownContent)}></section>

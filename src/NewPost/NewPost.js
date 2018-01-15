@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import request from 'superagent'
 import markdownit from 'markdown-it'
 
+import moment from 'moment'
+
 import './NewPost.css'
 
 class NewPost extends Component {
@@ -51,9 +53,10 @@ class NewPost extends Component {
                 title: this.state.editTitle,
                 markdownContent: this.state.editArea,
                 content: this.state.editArea,
-                createDate: new Date().toLocaleDateString(),
+                createDate: moment().format('YYYY-MM-DD hh:mm:ss'),
                 tags: this.state.tag.split('、'),
-                who: this.state.who
+                who: this.state.who,
+                status: 1
             }).end((err, res) => {
                 console.log(res.body)
             })

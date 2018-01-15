@@ -1,0 +1,38 @@
+.arcive_ul {
+    list-style: none;
+    padding: 0;
+}
+
+.archive_content {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.arcive-list {
+    display: flex;
+    padding: 1rem;
+    font-size: 14px;
+    border-bottom: 1px dotted #bbb;
+    letter-spacing: .5px;
+}
+
+.arcive-list > a {
+    color: #555;
+}
+
+.arcive_year {
+    text-align: left;
+    color: #262a30
+}
+
+.arcive_box {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 800px) {
+    .archive_content {
+        width: 70%;
+    }
+}

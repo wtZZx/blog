@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif, 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px;
-    background: #f4f4f4;
+    background: #f4f4f459;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -24,4 +24,20 @@ body {
 
 .btn-default {
     background: #5f70e1;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    background-clip: padding-box;
+    min-height: 28px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #fff;
 }

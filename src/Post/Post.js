@@ -19,7 +19,7 @@ class Post extends Component {
 
     componentWillMount() {
         this.state.getPost.end((err, data) => {
-            this.setState({ 'post': data.body })
+            this.setState({ 'post': data.body.body })
         })
     }
 

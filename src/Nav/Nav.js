@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Nav.css'
 
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import siteInfo from '../config'
 
@@ -18,7 +18,7 @@ class Nav extends Component {
 
         let listItem = siteInfo.siteMenu.map((item) =>
             <li key={item.id}>
-                <a className="top-nav nav-link" href={`${item.url}`}>{item.name}</a>
+                <Link to={`${item.url}`}>{item.name}</Link>
             </li>
         )
 
