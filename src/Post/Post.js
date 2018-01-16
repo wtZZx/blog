@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-
 import request from 'superagent'
-
 import util from '../util'
+import config from '../config'
 
 import './Post.css'
 
@@ -13,7 +12,7 @@ class Post extends Component {
         console.log(this, props)
         this.state = {
             post: [],
-            getPost: request.get(`http://localhost:3888/api/post/${this.props.match.params.id}`)
+            getPost: request.get(`${config.dev}/api/post/${this.props.match.params.id}`)
         }
     }
 

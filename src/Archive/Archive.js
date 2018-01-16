@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import request from 'superagent'
 import moment from 'moment'
+import config from '../config'
 
 import './Archive.css'
-
 class Archive extends Component {
 
     constructor (props) {
         super(props)
         this.state = {
-            getPosts: request.get('http://localhost:3888/api/post'),
+            getPosts: request.get(`${config.dev}/api/post`),
             posts: [],
             archive: {}
         }

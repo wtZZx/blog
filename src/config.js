@@ -7,5 +7,6 @@ export default {
         // { id: 3, name: '标签', url: '/tags' },
         { id: 4, name: '关于', url: '/about' }
     ],
-    cprt: '© wtzzx1007'
+    cprt: '© wtzzx1007',
+    dev: 'http://localhost:3888'
 }

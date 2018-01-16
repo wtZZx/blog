@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-
 import { Link } from 'react-router-dom'
-
 import request from 'superagent'
-
 import util from '../util'
+import moment from 'moment'
+import config from '../config'
 
 import './Summary.css'
-
 
 class Summary extends Component {
 
@@ -16,7 +14,7 @@ class Summary extends Component {
         console.log(this.props, this)
         this.state = {
             post: [],
-            getPosts: request.get(`http://localhost:3888/api/post`)
+            getPosts: request.get(`${config.dev}/api/post`)
         }
     }
 
@@ -38,7 +36,8 @@ class Summary extends Component {
                         <Link to={`post/${item._id}`}>{item.title}</Link>
                     </h1>
                     <p className="s-post-meta">
-                        <span>Posted on</span> {item.createDate}  |  <a className="s-post-comment-link">{item.commentCount} 条评论</a>
+                        <span>Posted on</span> {moment(item.createDate).format('YYYY-MM-DD hh:mm:ss')}  
+                        {/* |  <a className="s-post-comment-link">{item.commentCount} 条评论</a> */}
                     </p>
                 </header>
                 <section className="s-post-desc" dangerouslySetInnerHTML={util.createHtmlFromMarkdown(item.markdownContent)}></section>

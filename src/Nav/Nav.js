@@ -38,7 +38,6 @@ class Nav extends Component {
                     </div>
 
                 </div>
-                
             </header>
         )
     }

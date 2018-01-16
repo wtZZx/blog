@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-
 import request from 'superagent'
 import markdownit from 'markdown-it'
-
 import moment from 'moment'
+import config from '../config'
 
 import './NewPost.css'
 
@@ -16,7 +15,7 @@ class NewPost extends Component {
             editArea: '',
             editTitle: '',
             tag: '',
-            conect: request.post('http://localhost:3888/api/post'),
+            conect: request.post(`${config.dev}/api/post`),
             who: ''
         }
         this.handleEditAreaChange = this.handleEditAreaChange.bind(this)

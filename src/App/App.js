@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
-
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 import { AnimatedSwitch } from 'react-router-transition'
-
-import './App.css'
-
-import '../atom-one-dark.css'
-
 import routes from '../routes'
 import Summary from '../Summary/Summary'
 import Footer from '../Footer/Footer'
-
-
 import Nav from '../Nav/Nav'
+
+import './App.css'
+import '../atom-one-dark.css'
 
 class App extends Component {
 
